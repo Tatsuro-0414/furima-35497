@@ -32,8 +32,10 @@ Things you may want to cover:
 | nicname            | string | null: false |
 | email              | string | null: false |
 | encrypted_password | string | null: false |
-| name(全角)　　　　   | string | null: false |
-| name（カナ）        | string | null: false |
+| First name(全角)　  | string | null: false |
+| Last name (全角)　　| string | null: false |
+| First name（フリガナ | string | null: false |
+| Last name（フリガナ）| string | null: false|
 | Bithday            | string | null: false |
 
 -has_many :Listings
@@ -56,5 +58,22 @@ Things you may want to cover:
 | price              | string     | null: false,                   |
 | sales commission   | string     | null: false,                   |
 | sales profut       | string     | null: false,                   |
+| credit card        | string     | null: false,                   |
+| expiration date    | string     | null: false,                   |
+| security code      | string     | null: false,                   |
 
 -belonges_to :user
+
+## shipping addressテーブル
+
+|Column              |Type         |Options                        |
+|------------------  |------------ |-----------------------------  |
+| user                | refernces   | null: false, foreign_key: true|
+| postal code         | string      | null: false,                  |
+| pretectares         | string      | null: false,                  |
+| municipalities      | string      | null: false,                  |
+| address             | string      | null: false,                  |
+| building            | string      | null: false,                  |
+| phone number        | string      | null: false,                  |
+
+
