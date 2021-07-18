@@ -27,26 +27,29 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column             | Type    | Options     |
-| ------------------ | ------   | ----------- |
-| nicname            | string | null: false |
-| email              | string | null: false |
-| encrypted_password | string | null: false |
-| First name(全角)　  | string | null: false |
-| Last name (全角)　　| string | null: false |
-| First name（フリガナ | string | null: false |
-| Last name（フリガナ）| string | null: false|
-| Bithday            | string | null: false |
+| Column                 | Type              | Options     |
+| ------------------    | ------             | ----------- |
+| nickname                | string           | null: false |
+| email                  | unique: ture      | null: false, |
+| encrypted_password     | string            | null: false |
+| First_name(zenkaku)　  | string            | null: false |
+| Last_name(zenkaku)　　  | string            | null: false |
+| First_name（furigana）  | string            | null: false |
+| Last_name（furigana）    | string            | null: false|
+| bithday                  | date             | null: false |
 
--has_many :Listings
--has_many :purchase
+-has_many: listings
+-has_many: purchase
 
-## Listings テーブル
+## listingsテーブル
 
-| Column | Type            | Options                        |
-| ------ | ----------      | ------------------------------ |
-| user   | references      | null: false, foreign_key: true |
-| image  | Active Storage  | null: false,                   |
+| Column               | Type            | Options                        |
+| ------               | ----------      | ------------------------------ |
+| user                 | references      | null: false, foreign_key: true |
+｜product              | string          | null: false,                   |
+| product_description  | text            | null: false,                   |
+ 
+
 
 -belonges_to :user
 
@@ -58,9 +61,6 @@ Things you may want to cover:
 | price              | string     | null: false,                   |
 | sales commission   | string     | null: false,                   |
 | sales profut       | string     | null: false,                   |
-| credit card        | string     | null: false,                   |
-| expiration date    | string     | null: false,                   |
-| security code      | string     | null: false,                   |
 
 -belonges_to :user
 
@@ -76,4 +76,4 @@ Things you may want to cover:
 | building            | string      | null: false,                  |
 | phone number        | string      | null: false,                  |
 
-
+-belonges_to :user
