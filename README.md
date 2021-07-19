@@ -30,24 +30,26 @@ Things you may want to cover:
 | Column                 | Type              | Options     |
 | ------------------    | ------             | ----------- |
 | nickname                | string           | null: false |
-| email                  | unique: ture      | null: false, |
+| email                  |  string           | null: false,unique: ture |
 | encrypted_password     | string            | null: false |
-| First_name(zenkaku)　  | string            | null: false |
-| Last_name(zenkaku)　　  | string            | null: false |
-| First_name（furigana）  | string            | null: false |
-| Last_name（furigana）    | string            | null: false|
+| first_name(zenkaku)    | string            | null: false |
+| last_name(zenkaku)     | string            | null: false |
+| first_name（furigana）  | string            | null: false |
+| last_name（furigana）    | string            | null: false|
 | bithday                  | date             | null: false |
 
 -has_many: listings
 -has_many: purchase
 
-## listingsテーブル
+## itemテーブル
 
 | Column               | Type            | Options                        |
 | ------               | ----------      | ------------------------------ |
 | user                 | references      | null: false, foreign_key: true |
-｜product              | string          | null: false,                   |
-| product_description  | text            | null: false,                   |
+｜name                 | string          | null: false,                   |
+| explain              | text            | null: false,                   |
+| category             | string          | null: false,                   |
+| status               | string          | null: false,                   |
  
 
 
@@ -61,19 +63,24 @@ Things you may want to cover:
 | price              | string     | null: false,                   |
 | sales commission   | string     | null: false,                   |
 | sales profut       | string     | null: false,                   |
-
+| item               | references | null:vfalse, foreign_key: true |
 -belonges_to :user
 
 ## shipping addressテーブル
 
-|Column              |Type         |Options                        |
-|------------------  |------------ |-----------------------------  |
-| user                | refernces   | null: false, foreign_key: true|
-| postal code         | string      | null: false,                  |
-| pretectares         | string      | null: false,                  |
-| municipalities      | string      | null: false,                  |
-| address             | string      | null: false,                  |
-| building            | string      | null: false,                  |
-| phone number        | string      | null: false,                  |
+|Column              |Type         |Options                         |
+|------------------  |------------ |-----------------------------   |
+| purchases                 | refernces   | null: false, foreign_key: true|
+| postal_code               | string      | null: false,                  |
+| active_hash               | integer     | null: false,                  |
+| municipalities            | string      | null: false,                  |
+| address                   | string      | null: false,                  |
+| building                  | string      |                               |
+| phone_number              | string      | null: false,                  |
+| delivery_change_burden    | string      | null: false,                  |
+| shipping_area             | string      | null: false,                  |
+| shipping_days             | string      | null: false,                  |
+| price                     | string      | null: false,                  |
+
 
 -belonges_to :user
