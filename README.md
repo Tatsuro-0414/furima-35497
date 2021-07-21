@@ -50,9 +50,9 @@ Things you may want to cover:
 | explain              | text            | null: false,                   |
 | category_id          | integer         | null: false,                   |
 | status_id            | integer          | null: false,                  |
-| delivery_charge      | integer         | null: false,                   |
-| shipment_source_area_| integer         | null: false,                   |
-| until_shipping       | integer         | null: false,                   |
+| delivery_charge_id      | integer         | null: false,                   |
+| shipment_source_area_id| integer         | null: false,                   |
+| until_shipping_id       | integer         | null: false,                   |
 | price                | integer         | null: false,                   |
 
 
@@ -82,4 +82,4 @@ Things you may want to cover:
 | building                  | string      |                               |
 | phone_number              | string      | null: false,                  |
 
--belonges_to :user
+-belonges_to :purchases
