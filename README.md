@@ -54,7 +54,7 @@ Things you may want to cover:
 | shipment_source_area_id| integer         | null: false,                   |
 | until_shipping_id       | integer         | null: false,                   |
 | price                | integer         | null: false,                   |
-
+| prefectures          | integer         | null: false,                   |
 -has_one :user
 -belonges_to :purchase
 
@@ -65,6 +65,7 @@ Things you may want to cover:
 | user               | references | null: false, foreign_key: true |
 | item               | references | null: false, foreign_key: true |
 -belonges_to :user
+-belonges_to :item
 -has_one :shipping address
 
 ## shipping_addressテーブル
