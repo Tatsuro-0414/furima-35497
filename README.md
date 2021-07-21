@@ -65,13 +65,13 @@ Things you may want to cover:
 | item               | references | null: false, foreign_key: true |
 -belonges_to :user
 -belonges_to :item
--has_one :shipping address
+-has_one :shipping_address
 
 ## shipping_addressテーブル
 
 |Column              |Type         |Options                         |
 |------------------  |------------ |-----------------------------   |
-| purchase                 | refernces   | null: false, foreign_key: true|
+| purchase                 | references   | null: false, foreign_key: true|
 | postal_code               | string      | null: false,                  |
 | prefecture_id               | integer     | null: false,                  |
 | municipalities            | string      | null: false,                  |
