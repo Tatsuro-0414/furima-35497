@@ -48,11 +48,15 @@ Things you may want to cover:
 | user                 | references      | null: false, foreign_key: true |
 ｜name                 | string          | null: false,                   |
 | explain              | text            | null: false,                   |
-| category_id          | string          | null: false,                   |
-| status_id            | string          | null: false,                   |
-| price                | string          | null: false,                   |
+| category_id          | integer         | null: false,                   |
+| status_id            | integer          | null: false,                  |
+| delivery_charge      | integer         | null: false,                   |
+| shipment_source_area_| integer         | null: false,                   |
+| until_shipping       | integer         | null: false,                   |
+| price                | integer         | null: false,                   |
 
--belonges_to :shipping_address
+
+-belonges_to :item
  
 
 
@@ -63,15 +67,15 @@ Things you may want to cover:
 | Column             | Type       | Options                        |
 | -------            | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
-| item               | references | null: false, foreign_key: true |
+| shipping_address   | references | null: false, foreign_key: true |
 -belonges_to :user
--belonges_to :item
+-belonges_to :shipping address
 
 ## shipping addressテーブル
 
 |Column              |Type         |Options                         |
 |------------------  |------------ |-----------------------------   |
-| purchases                 | refernces   | null: false, foreign_key: true|
+| purchase                 | refernces   | null: false, foreign_key: true|
 | postal_code               | string      | null: false,                  |
 | municipalities            | string      | null: false,                  |
 | address                   | string      | null: false,                  |
