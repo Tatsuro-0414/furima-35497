@@ -51,12 +51,11 @@ Things you may want to cover:
 | category_id          | integer         | null: false,                   |
 | status_id            | integer          | null: false,                  |
 | delivery_charge_id      | integer         | null: false,                   |
-| shipment_source_area_id| integer         | null: false,                   |
 | until_shipping_id       | integer         | null: false,                   |
 | price                | integer         | null: false,                   |
-| prefectures          | integer         | null: false,                   |
--has_one :user
--belonges_to :purchase
+| prefecture_id          | integer         | null: false,                   |
+-belonges_to :user
+-has_one :purchase
 
 ## purchases テーブル
 
@@ -74,7 +73,7 @@ Things you may want to cover:
 |------------------  |------------ |-----------------------------   |
 | purchase                 | refernces   | null: false, foreign_key: true|
 | postal_code               | string      | null: false,                  |
-| prefectures               | integer     | null: false,                  |
+| prefecture_id               | integer     | null: false,                  |
 | municipalities            | string      | null: false,                  |
 | address                   | string      | null: false,                  |
 | building                  | string      | null: false                   |
