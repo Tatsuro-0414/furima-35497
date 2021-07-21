@@ -77,7 +77,7 @@ Things you may want to cover:
 | prefectures               | integer     | null: false,                  |
 | municipalities            | string      | null: false,                  |
 | address                   | string      | null: false,                  |
-| building                  | string      |                               |
+| building                  | string      | null: false                   |
 | phone_number              | string      | null: false,                  |
 
 -belonges_to :purchase
