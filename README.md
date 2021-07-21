@@ -38,10 +38,10 @@ Things you may want to cover:
 | last_name_furigana    | string            | null: false|
 | bithday                  | date             | null: false |
 
--has_many: listings
+-has_many: items
 -has_many: purchases
 
-## itemテーブル
+## itemsテーブル
 
 | Column               | Type            | Options                        |
 | ------               | ----------      | ------------------------------ |
@@ -55,31 +55,28 @@ Things you may want to cover:
 | until_shipping_id       | integer         | null: false,                   |
 | price                | integer         | null: false,                   |
 
-
--belonges_to :item
- 
-
-
--belonges_to :user
+-has_one :user
+-belonges_to :purchase
 
 ## purchases テーブル
 
 | Column             | Type       | Options                        |
 | -------            | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
-| shipping_address   | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
 -belonges_to :user
--belonges_to :shipping address
+-has_one :shipping address
 
-## shipping addressテーブル
+## shipping_addressテーブル
 
 |Column              |Type         |Options                         |
 |------------------  |------------ |-----------------------------   |
 | purchase                 | refernces   | null: false, foreign_key: true|
 | postal_code               | string      | null: false,                  |
+| prefectures               | integer     | null: false,                  |
 | municipalities            | string      | null: false,                  |
 | address                   | string      | null: false,                  |
 | building                  | string      |                               |
 | phone_number              | string      | null: false,                  |
 
--belonges_to :purchases
+-belonges_to :purchase
