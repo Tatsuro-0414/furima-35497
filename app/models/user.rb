@@ -9,13 +9,12 @@ has_many :items
 has_many :purchases
 
 
-validates :name, presence: ture
-validates :email, presence: ture
-validates :encrypted_password, presence: ture
-validatable :first_name_zenkaku, presence: ture
-validatable :last_name_zenkaku, presence: ture
-validatable :first_name_furigana, presence: ture
-validatable :last_name_furigana, presence: ture
-validatable :bithday, presence: ture
-
+validates :name, presence: true
+validates :email, presence: true
+validates :encrypted_password, presence: true
+validates :first_name_zenkaku, presence: true
+validates :last_name_zenkaku, presence: true
+validates :first_name_furigana, presence: true
+validates :last_name_furigana, presence: true
+validates :bithday, presence: true
 end

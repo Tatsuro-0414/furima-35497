@@ -6,12 +6,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.string :nicname,            null: false 
-      t.string :first_name_zenkaku  null: false
-      t.string :last_name_zenkaku   null: false
-      t.string :first_name_furigana null: false
-      t.string :last_name_furigana  null: false
-      t.date   :bithday             null: false
+      t.string :nickname,            null: false 
+      t.string :first_name_zenkaku,  null: false
+      t.string :last_name_zenkaku,   null: false
+      t.string :first_name_furigana, null: false
+      t.string :last_name_furigana,  null: false
+      t.date   :bithday,             null: false
+
+      # カラムの記述（カンマなど）をしっかりみる
+      # マイグレーションフアイルの削除方法は、rails db:rollbackをしてから、rails d mmaigrate モデル名
       
 
       ## Recoverable
@@ -49,3 +52,18 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     # add_index :users, :unlock_token,         unique: true
   end
 end
+
+
+# 7/26(月)エラー文
+# ActiveRecord::PendingMigrationError
+# Migrations are pending. To resolve this issue, run: rails db:migrate RAILS_ENV=development
+
+
+
+
+# Status   Migration ID    Migration Name
+# --------------------------------------------------
+#   down    20210722115633  Devise create users
+
+#   down = マイグレーションが実行出来ていない → マイグレーションのエラーになる（maigretion pendingになる（マイグレーションが保留中ですになる）
+#   up =　マイグレーションが実行出来ている

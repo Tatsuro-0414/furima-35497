@@ -80,3 +80,25 @@ Things you may want to cover:
 | phone_number              | string      | null: false,                  |
 
 -belonges_to :purchase
+
+
+
+7/25
+エラー文(NameError)
+undefined local variable or method `ture' for User (call 'User.connection' to establish a connection):Class (NameError)
+Did you mean?  true
+
+答えは、`tureのスペルミスだったので、tureに修正する。
+Did you mean?  trueの意味は、undefined local variable or methodの意味はtrueで良いとう意味
+
+
+エラー文 Migrations are pending. To resolve this issue, run: rails db:migrate RAILS_ENV=development
+意味：マイグレーションが実行されていない。
+     そもそもマイグレーションが実行出来ていない（rails db:migrate)
+     マイグレーションの記述のエラー（アソシエーションを記述していた）
+     
+
+解決　アソシエーションの記述を削除し、モデルにアソシエーションを記述した
+
+
+
