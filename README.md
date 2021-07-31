@@ -36,7 +36,7 @@ Things you may want to cover:
 | last_name_zenkaku     | string            | null: false |
 | first_name_furigana  | string            | null: false |
 | last_name_furigana    | string            | null: false|
-| bithday                  | date             | null: false |
+| bith_date                  | date             | null: false |
 
 -has_many: items
 -has_many: purchases

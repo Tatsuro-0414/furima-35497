@@ -11,8 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :last_name_zenkaku,   null: false
       t.string :first_name_furigana, null: false
       t.string :last_name_furigana,  null: false
-      t.date   :bithday,             null: false
-
+      t.date   :birth_date,             null: false
       # カラムの記述（カンマなど）をしっかりみる
       # マイグレーションフアイルの削除方法は、rails db:rollbackをしてから、rails d mmaigrate モデル名
       
@@ -67,3 +66,19 @@ end
 
 #   down = マイグレーションが実行出来ていない → マイグレーションのエラーになる（maigretion pendingになる（マイグレーションが保留中ですになる）
 #   up =　マイグレーションが実行出来ている
+    # rails db:rollbackをしたか、UPからdownになった
+
+    # 7/26エラー文
+    # 3つのテーブルを生成した
+    # うち二つのテーブルは不要だと気がついた
+    # ロールバックをした　三つのテーブル全て
+    # この時、マイグレーションファイルの状態は全てdown
+    # かつ、テーブルはシークエルプロに生成されている状態
+    # 不用なテーブル二つのファイルを削除した　
+    # サーバーを立ち上げ確認したところ、エラー→ユーザーテーブルのdown状態のマイグレーションファイルがあるから
+    # じゃあ、マイグレーションすればよい
+    # でも、エラ〜→すでにテーブルが生成されてしまっているから
+    # これを解消するにはテーブル関連を作り直してあげる必要がある
+    # resetコマンド→DB、テーブルを現在のマイグレーションファイルを参照してもうちど作り直す
+    # 結果、ユーザーテーブルが際作成されて、マイグレーションファイルがupの状態になった
+
