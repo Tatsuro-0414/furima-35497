@@ -13,7 +13,7 @@ end
 it 'nicknameが空では登録できない' do
   @user.nickname = ''
   @user.valid?
-  expect(@user.errors.full_messages).to include "nickname can't be blank"
+  expect(@user.errors.full_messages).to include "Nickname can't be blank"
 
 end
 it 'emailが空では登録できない' do
@@ -22,47 +22,42 @@ it 'emailが空では登録できない' do
   expect(@user.errors.full_messages).to include "Email can't be blank"
 end
 it 'passwordは、5文字以下では登録出来ない' do
-  @user.password = 'tespt'
+  @user.password = 'testss'
   @user.valid?
-  expect(@user.errors.full_messages).to include "Email can't be blank"
+  expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
 end
 it 'passwordは、全角英字は登録出来ない' do
-  @user.password = 'ｔａ'
+  @user.password = 'tatsuto'
   @user.valid?
-  expect(@user.errors.full_messages).to include "Email can't be blank"
+  expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
 end
 
 it 'passwordは、全角数字は登録出来ない' do
-  @user.password = '０４１４'
+  @user.password = 'tatsuro'
   @user.valid?
-  expect(@user.errors.full_messages).to include "Email can't be blank"
+  expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
 end
 
 
 it 'password_confirmationが空では登録できない' do
   @user.password_confirmation = ''
   @user.valid?
-  expect(@user.errors.full_messages).to include "password_confirmation can't be blank"
+  expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
 
 end
 
-it 'nicknameが7文字未満では登録できない' do
-  @user.nickname = 'タツロウ'
-  @user.valid?
-  expect(@user.errors.full_messages).to include "nickname can't be blank"
 
-end
 it '新規のemailが存在する場合登録できない' do
-  @user.email = 'shimada@14'
-  @user.valid?
-  expect(@user.errors.full_messages).to include "Email can't be blank"
+  @user.save
+        another_user = FactoryBot.build(:user, email: @user.email)
+        another_user.valid?
+        expect(another_user.errors.full_messages).to include('Email has already been taken')
 end
 
-end
 it 'passwordが4文字以下では登録できない' do
-  @user.password = 'test'
+  @user.password = 'tasuto'
   @user.valid?
-  expect(@user.errors.full_messages).to include "Email can't be blank"
-  
+  expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
+end
 end
 end
