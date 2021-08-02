@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :first_name_zenkaku
+    
 
     
     with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '漢字・ひらがな・カタカナ以外では登録できない' } do

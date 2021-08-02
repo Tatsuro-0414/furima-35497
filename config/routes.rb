@@ -6,10 +6,7 @@ Rails.application.routes.draw do
 
 end
 
- 
-# resources :itms do
-# resources :itms, only: :create
-  
-#  end
+
 
 # root to: "items#index" コントローラー名（items)ietmsのビューがitemsだから
+# root to の意味を忘れない為
