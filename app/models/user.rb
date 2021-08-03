@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-  has_many :items
+  # has_many :items
+  # ９行目については、出品機能で必要なアソシエーションになりますので、記述しております。
   # has_many :purchases
   # ９行目については、購入機能で必要なアソシエーションになりますので、記述しております。
 
