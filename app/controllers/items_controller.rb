@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
    
   end
   
+  # def @itetms = User.new
+
+  # end
+
 end
 
   
