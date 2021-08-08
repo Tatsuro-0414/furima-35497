@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :items do
   # resources :purchases, only: :create
+  # 購入機能の際に記述する為、7行目を記述している
     
    end
 

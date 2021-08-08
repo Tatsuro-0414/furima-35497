@@ -129,36 +129,36 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Price must be greater than or equal to 300"
       end
 
+      
+      it 'priceが全角数字では出品できない' do
+        @item.price = 'あいうａあいう'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Price is not a number"
+      end
+
+      it 'priceが、半角英数混合では出品できない' do
+        @item.price = '123abc'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Price is not a number"
+      end
+
+      it 'priceは、半角英字のみでは出品できない' do
+        @item.price = 'abc'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Price is not a number"
+      end
 
 
 
 
 
-
-
-
-
-  # validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
-  # validates :delivery_charge_id, numericality: { other_than: 1 , message: "can't be blank"}
-  # validates :status_id, numericality: { other_than: 1 , message: "can't be blank"}
-  # validates :until_shipping_id, numericality: { other_than: 1 , message: "can't be blank"}
-  # validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}
-  # validates :user_id, numericality: { other_than: 1 , message: "can't be blank"}
-  
-
+ 
 
      
 
 
 
-      # alidates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
-      # validates :delivery_charge_id, numericality: { other_than: 1 , message: "can't be blank"}
-      # validates :status_id, numericality: { other_than: 1 , message: "can't be blank"}
-      # validates :until_shipping_id, numericality: { other_than: 1 , message: "can't be blank"}
-      # validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}
-      # validates :user_id, numericality: { other_than: 1 , message: "can't be blank"}
       
-
 
 
 
