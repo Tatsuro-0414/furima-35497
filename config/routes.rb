@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   
   root to: "items#index"
 
+  resources :items do
+  # resources :purchases, only: :create
+  # 購入機能の際に記述する為、7行目を記述している
+    
+   end
+
 end
 
 
