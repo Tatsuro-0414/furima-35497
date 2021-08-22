@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   
   root to: "items#index"
+ 
+  
 
   resources :items do
-  # resources :purchases, only: :create
+  
+
+  resources :purchases, only: [:index,:create]
   # 購入機能の際に記述する為、7行目を記述している
     
    end
