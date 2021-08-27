@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!
 
 
   
@@ -6,7 +7,10 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
     @purchase_address = PurchaseAddress.new
     @purchase =Purchase.new
-
+   if current_user.id == @item.user.id || @item.purchase 
+      redirect_to  root_path
+   end
+   
   end
    
 
@@ -15,13 +19,13 @@ class PurchasesController < ApplicationController
   def create
     @purchase_address = PurchaseAddress.new(purchases_params)
     @item = Item.find(params[:item_id])
-    # インスタンス生成のために、PurchasesAddress.newといった形でフォームオブジェクトファイルを指定する
+    
    if @purchase_address.valid?
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  
       Payjp::Charge.create(
-        amount: @item.price,  # 商品の値段
-        card: purchases_params[:card_token],    # カードトークン
-        currency: 'jpy'                 # 通貨の種類（日本円）
+        amount: @item.price,  
+        card: purchases_params[:card_token],    
+        currency: 'jpy'                 
       )
       @purchase_address.save
      
@@ -31,14 +35,7 @@ class PurchasesController < ApplicationController
    end
    end
   
-  #  @purchase =Purchase.new(purchase_params)
-  #   if @purchase.valid?
-  #    @purchase.save
-  #    return redirect_to root_path
-  #  else
-  #    render 'index'
   
-
 
 
 
