@@ -16,7 +16,6 @@ class PurchaseAddress
     validates :postal_code
     validates :municipalities
     validates :address
-    validates :phone_number
     validates :card_token
     
 
@@ -32,16 +31,6 @@ class PurchaseAddress
   def save
     purchases = Purchase.create(user_id:user_id,item_id:item_id)
     ShippingAddress.create(postal_code: postal_code, prefecture_id: prefecture_id, municipalities: municipalities, address: address, building: building,phone_number: phone_number,purchases_id:purchases.id)
-   
-    
-    # 購入履歴テーブルと発送先住所テーブルへ値を保存するための記述が必要
-
-   
-      # 寄付情報を保存し、変数donationに代入する
-     
-      # 住所を保存する
-      # donation_idには、変数donationのidと指定する
-      
   end
 
 
