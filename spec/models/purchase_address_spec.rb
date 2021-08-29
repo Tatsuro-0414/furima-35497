@@ -17,7 +17,7 @@ describe '購入管理機能' do
       expect(@purchase_address).to be_valid
     end
   end 
-end
+
   context "内容が問題ある場合" do
     it 'tokenが空では登録できない' do
       @purchase_address.card_token= ''
@@ -94,7 +94,12 @@ end
       expect(@purchase_address.errors.full_messages).to include "Phone number is invalid"
     end
    
+    it 'prefectureが1では登録できない' do
+      @purchase_address.prefecture_id = 1
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include "Prefecture can't be blank"
+    end
   end
 end   
-
+end
 

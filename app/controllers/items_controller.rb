@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
   end
   
   def dry_item
-    if @item.user.id != current_user.id
+    if  @item.purchase 
        redirect_to root_path
   end
 end
