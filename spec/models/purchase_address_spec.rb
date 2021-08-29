@@ -114,9 +114,9 @@ describe '購入管理機能' do
       expect(@purchase_address.errors.full_messages).to include "User can't be blank"
     end
     it 'item_idが空では登録できない' do
-      @purchase_address.user_id= ''
+      @purchase_address.item_id= ''
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include "User can't be blank"
+      expect(@purchase_address.errors.full_messages).to include "Item can't be blank"
     end
     
   end
