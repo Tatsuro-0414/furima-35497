@@ -2,10 +2,15 @@ Rails.application.routes.draw do
   devise_for :users
   
   root to: "items#index"
+ # root to: "items#index" コントローラー名（items)ietmsのビューがitemsだから
+ # root to の意味を忘れない為
+  
 
   resources :items do
-  # resources :purchases, only: :create
-  # 購入機能の際に記述する為、7行目を記述している
+  
+
+  resources :purchases, only: [:index,:create]
+  
     
    end
 
@@ -13,5 +18,3 @@ end
 
 
 
-# root to: "items#index" コントローラー名（items)ietmsのビューがitemsだから
-# root to の意味を忘れない為

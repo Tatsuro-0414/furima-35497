@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   before_action :set_item, only: [:edit, :show,:update,:destroy]
   before_action :dry_item, only: [:edit, :update,:destroy]
+  
   def index
     @items = Item.order(created_at: :desc)
    
@@ -60,8 +61,8 @@ class ItemsController < ApplicationController
   end
   
   def dry_item
-    if @item.user.id != current_user.id
-      redirect_to root_path
+    if  @item.user.id != current_user.id || @item.purchase.present?
+       redirect_to root_path
   end
 end
 end
