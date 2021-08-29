@@ -4,6 +4,7 @@ const pay = () => {
  
   submit.addEventListener("submit", (e) => {
     e.preventDefault();
+  
 
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
@@ -16,7 +17,7 @@ const pay = () => {
     };
  
     Payjp.createToken(card, (status, response) => {
-      console.log(response)
+     
       if (status == 200) {
         const token = response.id;
           const renderDom = document.getElementById("charge-form");   //idを元に要素を取得

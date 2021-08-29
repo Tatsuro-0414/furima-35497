@@ -6,7 +6,7 @@ FactoryBot.define do
     municipalities    {"市町村"}
     address           {"番地"}
     building          {"建物名"}
-    prefecture_id     {4}
+    prefecture_id     {48}
 
   end
   end
