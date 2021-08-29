@@ -16,6 +16,10 @@ describe '購入管理機能' do
     it '商品管理機能が含まれている場合は登録できる' do
       expect(@purchase_address).to be_valid
     end
+    it '建物名が抜けていても登録できること' do
+      @purchase_address.building= ''
+      expect(@purchase_address).to be_valid
+    end
   end 
 
   context "内容が問題ある場合" do
@@ -99,6 +103,22 @@ describe '購入管理機能' do
       @purchase_address.valid?
       expect(@purchase_address.errors.full_messages).to include "Prefecture can't be blank"
     end
+    it 'phonenumberが12桁以上では登録できない' do
+      @purchase_address.phone_number = "111111111111"
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include "Phone number is invalid"
+    end
+    it 'user_idが空では登録できない' do
+      @purchase_address.user_id= ''
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include "User can't be blank"
+    end
+    it 'item_idが空では登録できない' do
+      @purchase_address.user_id= ''
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include "User can't be blank"
+    end
+    
   end
 end   
 end
