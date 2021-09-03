@@ -9,8 +9,6 @@ class PurchasesController < ApplicationController
     @purchase_address = PurchaseAddress.new
    
   
-      redirect_to  root_path
-   end
    
   end
    
@@ -46,7 +44,9 @@ private
 
   def if_item
     if current_user.id == @item.user.id || @item.purchase 
+       redirect_to  root_path
   end
+    end
   
 
 
