@@ -1,4 +1,6 @@
 class ShippingAddress < ApplicationRecord
-end
 
-belonges_to :purchase
+
+belongs_to :purchase
+
+end
